@@ -1,20 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View, ViewToken } from "react-native";
+import { useSharedValue } from "react-native-reanimated";
+import ListItem from "./components/ListItem";
+
+const data = new Array(20).fill(0).map((_, index) => ({ id: index }));
 
 export default function App() {
+  const viewableItems = useSharedValue<ViewToken[]>([]);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1 }}>
+      <FlatList
+        data={data}
+        onViewableItemsChanged={({ viewableItems: vItems }) => {
+          viewableItems.value = vItems;
+        }}
+        renderItem={({item}) => <ListItem item={item} viewableItems={viewableItems} />}
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

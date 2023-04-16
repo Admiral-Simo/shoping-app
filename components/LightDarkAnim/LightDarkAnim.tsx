@@ -14,11 +14,9 @@ const SWITCH_TRACK_COLOR = {
   false: "rgba(0,0,0,0.1)",
 };
 
-
-
 const THEME = {
-    dark: "rgb(102, 86, 13)",
-    light: "rgb(255,255,255)",
+  dark: "rgb(102, 86, 13)",
+  light: "rgb(255,255,255)",
 };
 
 const LightDarkAnim = () => {
@@ -58,26 +56,31 @@ const LightDarkAnim = () => {
   });
 
   return (
-    <Animated.View style={bgStyle} className="flex-1 pt-40 bg-black">
-      <StatusBar hidden />
-      <Animated.Text
-        style={textStyle}
-        className="tracking-widest text-center text-7xl"
-      >
-        THEME
-      </Animated.Text>
-      <View className="items-center justify-center mt-10">
-        <Animated.View
-          className="items-center justify-center bg-black rounded-full h-52 w-52"
-          style={circleStyle}
+    <Animated.View
+      style={bgStyle}
+      className="items-center justify-center flex-1 bg-black"
+    >
+      
+      <View>
+        <Animated.Text
+          style={textStyle}
+          className="tracking-widest text-center text-7xl"
         >
-          <Switch
-            value={theme}
-            onValueChange={toggleTheme}
-            trackColor={SWITCH_TRACK_COLOR}
-            thumbColor={"violet"}
-          />
-        </Animated.View>
+          THEME
+        </Animated.Text>
+        <View className="items-center justify-center mt-10">
+          <Animated.View
+            className="items-center justify-center bg-black rounded-full h-52 w-52"
+            style={circleStyle}
+          >
+            <Switch
+              value={theme}
+              onValueChange={toggleTheme}
+              trackColor={SWITCH_TRACK_COLOR}
+              thumbColor={"violet"}
+            />
+          </Animated.View>
+        </View>
       </View>
     </Animated.View>
   );

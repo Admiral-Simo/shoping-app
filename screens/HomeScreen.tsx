@@ -17,6 +17,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Mansory from "../components/Ecom/Products/Masonry";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import CustomBackdrop from "../components/Ecom/FilterModal/CustomBackdrop";
+import FilterView from "../components/Ecom/FilterModal/FilterView";
 
 const CATHEGORIES = [
   "Clothing",
@@ -208,7 +209,7 @@ const HomeScreen = () => {
           <CustomBackdrop {...props} handleClosePress={handleClosePress} />
         )}
       >
-        <Text>Modal</Text>
+        <FilterView />
       </BottomSheetModal>
     </GestureHandlerRootView>
   );

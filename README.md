@@ -5,7 +5,6 @@ Welcome to the Mobile Ecommerce App project! This is a mobile application built 
 ## Technologies Used
 
 - Front-end: React Native, Native Wind
-- Back-end: TBD (mention if any)
 
 ## Features
 
